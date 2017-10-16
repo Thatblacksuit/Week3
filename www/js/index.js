@@ -1,7 +1,5 @@
 $( document ).ready(function() {
     console.log( "ready!" );
-
-    var count = 1
     
     //Store Data
 window.localStorage.setItem("pen", "Blue");
@@ -26,5 +24,33 @@ $("#result3").text(Item3);
 $("#result4").text(Item4);
 $("#result5").text(Item5);
     
-$("#numberofitems").text(localStorage.length);    
+$("#numberofitems").text(localStorage.length);
+    
+    //JSON
+var Snickers = {
+    "Fat" : "13.4g",
+    "Saturates" : "4.6g",
+    "Carbohydrates" : "26.1g",
+    "Sugars" : "21.6g",
+    "Protein" : "4.6g",
+    "Salt" : "0.22g",
+    "Energy" :{ 
+        "KJ" : "1023",
+        "Kcal" : "245"}
+};    
+    
+    
+var SnickersString = JSON.stringify(Snickers);
+   
+    window.localStorage.setItem("Snickers", SnickersString);
+                                
+var getSnickers = window.localStorage.getItem("Snickers");
+
+var SnickersJSON = JSON.parse(getSnickers);
+
+$("#Snickersinfo").text(SnickersJSON.Protein);
+    
+
+    
+    
 });
